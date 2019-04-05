@@ -99,14 +99,14 @@
             <div id="tooplate_menu" class="ddsmoothmenu">
                 <ul>
                     <li><a href="index" class="selected">Trang chủ</a></li>
-                    <li><a href="manageProducts">Sản phẩm</a>
+                    <li><a href="allProduct">Sản phẩm</a>
                     </li>
                     <li><a href="viewCart">Thanh Toán</a></li>
                     <li><a href="manageProducts">Quản Lý</a></li>
                     <?php
                     if (isset($_SESSION['user']))
                     {
-                        echo "<li><a href='' class='last'>Hello {$_SESSION['user'][0]['tenkh']}</a></li>";
+                        echo "<li><a href='# class='last'>Hello {$_SESSION['user'][0]['tenkh']}</a></li>";
                         echo "<li><a href='logout' class='last'>Đăng Xuất
                 </a></li>";
                     } else
@@ -123,9 +123,9 @@
         <div id="header_bottom">
 
             <div id="tooplate_search">
-                <form action="#" method="get">
-                    <input type="text" value=" " name="keyword" id="keyword" title="keyword" onfocus="clearText(this)"
-                           onblur="clearText(this)" class="txt_field"/>
+                <form action="search" method="get">
+                    <input type="text" id="keyword" title="keyword" onfocus="clearText(this)"
+                           onblur="clearText(this)" class="txt_field" name="id"/>
                     <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="search"
                            class="sub_btn"/>
                 </form>
@@ -172,15 +172,15 @@
                 <div class="backgrounds">
 
                     <div class="item item_1">
-                        <img src="../../images/slider/01.jpg" alt="image"/>
+                        <img src="<?php echo LAYOUT_URL;?>images/slider/01.jpg" alt="image"/>
                     </div><!-- /item -->
 
                     <div class="item item_2">
-                        <img src="../../images/slider/02.jpg" alt="image"/>
+                        <img src="<?php echo LAYOUT_URL;?>images/slider/02.jpg" alt="image"/>
                     </div><!-- /item -->
 
                     <div class="item item_3">
-                        <img src="../../images/slider/03.jpg" alt="image"/>
+                        <img src="<?php echo LAYOUT_URL;?>images/slider/03.jpg" alt="image"/>
                     </div><!-- /item -->
 
                 </div><!-- /backgrounds -->
@@ -200,10 +200,11 @@
                 $hinh = $value['hinh'];
                 $gia = $value['gia'];
                 $Ten = $value['tenhang'];
+                $link= LAYOUT_URL;
                 echo "
             <div class='product_box'>
                 <div class='img_box'><span></span>;
-                    <a href='productdetail?id=$ma'> <img src='../../$hinh' alt='image' /></a>
+                    <a href='productdetail?id=$ma'> <img src='$link$hinh' alt='image' /></a>
                 </div>
                 <h2><a href='productdetail.html'>$Ten</a></h2>
                 <p class='price'>$gia</p>
@@ -226,10 +227,11 @@
                 $hinh = $value['hinh'];
                 $gia = $value['gia'];
                 $Ten = $value['tenhang'];
+                $link=LAYOUT_URL;
                 echo "
             <div class='product_box'>
                 <div class='img_box'><span></span>;
-                    <a href='productdetail?id=$ma'> <img src='../../$hinh' alt='image' /></a>
+                    <a href='productdetail?id=$ma'> <img src='$link$hinh' alt='image' /></a>
                 </div>
                 <h2><a href='productdetail'>$Ten</a></h2>
                 <p class='price'>$gia</p>

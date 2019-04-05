@@ -99,14 +99,14 @@
             <div id="tooplate_menu" class="ddsmoothmenu">
                 <ul>
                     <li><a href="index" class="selected">Trang chủ</a></li>
-                    <li><a href="manageProducts">Sản phẩm</a>
+                    <li><a href="allProduct">Sản phẩm</a>
                     </li>
                     <li><a href="viewCart">Thanh Toán</a></li>
                     <li><a href="manageProducts">Quản Lý</a></li>
                     <?php
                     if (isset($_SESSION['user']))
                     {
-                        echo "<li><a href='DangNhap1.html' class='last'>Hello {$_SESSION['user'][0]['tenkh']}</a></li>";
+                        echo "<li><a href='# class='last'>Hello {$_SESSION['user'][0]['tenkh']}</a></li>";
                         echo "<li><a href='logout' class='last'>Đăng Xuất
                 </a></li>";
                     } else
@@ -123,9 +123,9 @@
         <div id="header_bottom">
 
             <div id="tooplate_search">
-                <form action="#" method="get">
-                    <input type="text" value=" " name="keyword" id="keyword" title="keyword" onfocus="clearText(this)"
-                           onblur="clearText(this)" class="txt_field"/>
+                <form action="search" method="get">
+                    <input type="text" id="keyword" title="keyword" onfocus="clearText(this)"
+                           onblur="clearText(this)" class="txt_field" name="id"/>
                     <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="search"
                            class="sub_btn"/>
                 </form>
@@ -154,7 +154,7 @@
             <div class="col col_2">
                 <label>Mật Khẩu </label>
                 <input name="Pass" type="text" id="email" style="width:300px;"/></br>
-                <a href="DangKi1.html"><input type="button" value="Đăng Kí"/></a>
+                <a href="regis"><input type="button" value="Đăng Kí"/></a>
 
             </div>
         </form>

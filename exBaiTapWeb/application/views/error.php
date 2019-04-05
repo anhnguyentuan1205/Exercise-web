@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -131,116 +132,15 @@
             </div>
         </div> <!-- END of header bottom -->
     </div> <!-- END of header -->
-    
-    <div id="tooplate_main"><span class="main_border main_border_t"></span><span class="main_border main_border_b"></span>
-    
-    <div id="content">
-    	<h1>Items in Cart</h1>
-    	
-        <table width="580px" cols="0" cellspacing="0" cellpadding="5">
-          <tr bgcolor="#ddd">
-                <th width="220" align="left">Image </th> 
-                <th width="180" align="left">Description </th> 
-                <th width="100" align="center">Quantity </th> 
-                <th width="60" align="right">Price </th> 
-                <th width="60" align="right">Total </th> 
-                <th width="90"> </th>
-                
-          </tr>
-            <tr>
-                <td><img src="<?php 
-echo LAYOUT_URL
-?>images/product/01.jpg" alt="image" /></td>
-                <td>Etiam in tellus</td> 
-                <td align="center"><input type="text" value="1" style="width: 20px; text-align: right" /> </td>
-                <td align="right">$100 </td> 
-                <td align="right">$100 </td>
-                <td align="center"> <a href="#"><img src="<?php 
-echo LAYOUT_URL
-?>images/remove.png" alt="remove" /><br />Remove</a> </td>
-            </tr>
-            <tr>
-                <td><img src="<?php 
-echo LAYOUT_URL
-?>images/product/02.jpg" alt="image" /> </td>
-                <td>Hendrerit justo</td> 
-                <td align="center"><input type="text" value="1" style="width: 20px; text-align: right" />  </td>
-                <td align="right">$40  </td>
-                <td align="right">$40 </td>
-                <td align="center"> <a href="#"><img src="<?php 
-echo LAYOUT_URL
-?>images/remove.png" alt="remove" /><br />Remove</a>  </td>
-            </tr>
-            <tr>
-                <td colspan="3"style="background: url(<?php 
-echo LAYOUT_URL
-?>images/tooplate_h2.png) repeat" align="right"  height="30px">Have you modified your basket? Please click here to <a href="shoppingcart.html"><strong>Update</strong></a>&nbsp;&nbsp;</td>
-                <td align="right" style="background: url(<?php 
-echo LAYOUT_URL
-?>images/tooplate_h2.png) repeat; font-weight:bold"> Total </td>
-                <td align="right" style="background: url(<?php 
-echo LAYOUT_URL
-?>images/tooplate_h2.png) repeat; font-weight:bold">$140 </td>
-                <td style="background: url(<?php 
-echo LAYOUT_URL
-?>images/tooplate_h2.png) repeat; font-weight:bold"> </td>
-            </tr>
-        </table>
-        <p class="right"><a href="checkout.html" class="button">checkout</a></p>
-            
-        
-		</div>
-        
-        <div id="sidebar">
-			<div class="sidebar_section sidebar_section_bg">
-                <h3>Popular Products</h3>
-         		<ul class="sidebar_link_list popular_products">
-                    <li>
-                    	<img src="<?php 
-echo LAYOUT_URL
-?>images/product/01_xs.jpg" align="image" />
-                    	<span class="title"><a href="#">Donec tincidunt hendrerit</a></span>
-                        <span class="price">$28</span>
-                        <span class="clear"></span>
-					</li>
-                    <li>
-                        <img src="<?php 
-echo LAYOUT_URL
-?>images/product/02_xs.jpg" align="image" />
-                        <span class="title"><a href="#">Ut ut felis ut nulla</a></span>
-						<span class="price">$28</span>
-                        <span class="clear"></span>
-					</li>
-                    <li>
-                      	<img src="<?php 
-echo LAYOUT_URL
-?>images/product/03_xs.jpg" align="image" />
-                    	<span class="title"><a href="#">Curabitur viverra</a></span>
-						<span class="price">$28</span>
-                        <span class="clear"></span>
-					</li>
-                    <li>
-						<img src="<?php 
-echo LAYOUT_URL
-?>images/product/04_xs.jpg" align="image" />
-                    	<span class="title"><a href="#">Nulla pulvinar felis</a></span>
-						<span class="price">$28</span>
-                        <span class="clear"></span>
-					</li>
-                    <li>
-                    	<img src="<?php 
-echo LAYOUT_URL
-?>images/product/05_xs.jpg" align="image" />
-                    	<span><a href="#">Pellentesque luctus </a></span>
-						<span class="price">$28</span>
-                        <span class="clear"></span>
-					</li>
-              </ul>
-            </div>
+
+    <div id="tooplate_main"><span class="main_border main_border_t"></span><span
+                class="main_border main_border_b"></span>
+        <div class="col col_1">
         </div>
+        <p style="font-size: 30px"> Bạn không có quyền truy cập trang này</p>
         <div class="clear"></div>
     </div> <!-- END of main -->
-    
+
 </div> <!-- END of wrapper -->
 
 <div id="tooplate_bottom_wrapper">

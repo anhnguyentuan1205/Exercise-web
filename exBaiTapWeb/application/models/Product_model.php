@@ -35,4 +35,17 @@ class Product_model extends CI_Model
     {
         $this->db->insert('hang',$product);
     }
+
+    public function searchProductByName($name)
+    {
+        $this->db->like('tenhang', $name);
+        $result = $this->db->get('hang');
+        return $result->result_array();
+    }
+
+    public function edit($product, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('hang', $product);
+    }
 }

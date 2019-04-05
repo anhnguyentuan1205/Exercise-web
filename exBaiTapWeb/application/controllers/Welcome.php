@@ -15,11 +15,7 @@ class Welcome extends CI_Controller
 
     public function test()
     {
-        $data=array(
-            'mess'=>'hahahah',
-            'send'=>'TRUE'
-        );
-        $this->load->view('welcome_message',$data);
+        print_r($_SESSION['user']);
     }
 
     public function index()
@@ -73,17 +69,75 @@ class Welcome extends CI_Controller
         $this->index();
     }
 
+    public function regis()
+    {
+        if (empty($_POST))
+        {
+            $this->load->view('DangKi');
+            return;
+        } else
+        {
+            $mail = $_POST['id'];
+            $pass = $_POST['pass'];
+            $phone = $_POST['phone'];
+            $name = $_POST['name'];
+            $address = $_POST['address'];
+            if (empty($mail) || empty($pass) || empty($phone) || empty($address) || empty($name))
+            {
+                $this->load->view('DangKi', array(
+                    'message' => 'Thiếu thông tin yêu cầu'
+                ));
+            } else
+            {
+                $all_user = $this->User_model->getUsers();
+                foreach ($all_user as $user)
+                {
+                    if ($user['email'] == $mail)
+                    {
+                        $this->load->view('DangKi', array(
+                            'message' => 'Trùng email'
+                        ));
+                    }
+                }
+                $data = array(
+                    'email' => $mail,
+                    'matkhau' => $pass,
+                    'tenkh' => $name,
+                    'dienthoai' => $phone,
+                    'diachi' => $address
+                );
+                $flag = $this->User_model->insertUser($data);
+                $this->load->view('DangKi', array(
+                    'message' => 'đăng kí thành công'
+                ));
+            }
+        }
+    }
+
+
     public function manageProducts($mess = '')
     {
-        $result = $this->Product_model->getProducts();
-        $data = array(
-            'products' => $result
-        );
-        if (!empty($mess))
+        if (isset($_SESSION['user']) && !empty($_SESSION['user']))
         {
-            $data['mess'] = $mess;
+            if ($_SESSION['user'][0]['admin'] == 1)
+            {
+                $result = $this->Product_model->getProducts();
+                $data = array(
+                    'products' => $result
+                );
+                if (!empty($mess))
+                {
+                    $data['mess'] = $mess;
+                }
+                $this->load->view('products', $data);
+            } else
+            {
+                $this->load->view('error');
+            }
+        } else
+        {
+            $this->login();
         }
-        $this->load->view('products', $data);
     }
 
     public function deleteProduct()
@@ -196,9 +250,23 @@ class Welcome extends CI_Controller
                 'products' => $_SESSION['cart']
             );
             $this->load->view('viewcart', $data);
-        }
-        else
+        } else
+        {
             $this->load->view('viewcart');
+        }
+    }
+
+    public function deleteCart()
+    {
+        $id = $_GET['id'];
+        foreach ($_SESSION['cart'] as $pos => $item)
+        {
+            if ($item[0]['mahang'] == $id)
+            {
+                unset($_SESSION['cart'][$pos]);
+            }
+        }
+        $this->viewCart();
     }
 
     public function info()
@@ -248,5 +316,61 @@ class Welcome extends CI_Controller
         );
         unset($_SESSION['cart']);
         $this->load->view('confirm', $data);
+    }
+
+    public function search()
+    {
+        $id = $_GET['id'];
+        $result = $this->Product_model->searchProductByName($id);
+        $data = array(
+            'result' => $result,
+        );
+
+        $this->load->view('product', $data);
+    }
+
+    public function allProduct()
+    {
+        $result = $this->Product_model->getProducts();
+        $data = array(
+            'result' => $result
+        );
+        $this->load->view('product', $data);
+    }
+
+    public function edit()
+    {
+        $id = $_GET['id'];
+        if (empty($_POST))
+        {
+            $this->load->view('edit');
+        } else
+        {
+            $gia = $_POST['gia'];
+            $mota = $_POST['mota'];
+            if (empty($gia) || empty($mota))
+            {
+                $this->load->view('edit', array(
+                    'message' => 'thiếu thông tin'
+                ));
+            } else
+            {
+                $product = array(
+                    'gia' => $gia,
+                    'mota' => $mota
+                );
+                $flag = $this->Product_model->edit($product, $id);
+                if ($flag)
+                {
+                    $this->load->view('edit', array(
+                        'message' => 'cập nhật thành công'
+                    ));
+                }
+                else
+                    $this->load->view('edit', array(
+                        'message' => 'cập nhật không thành công'
+                    ));
+            }
+        }
     }
 }

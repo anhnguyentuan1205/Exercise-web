@@ -99,14 +99,14 @@
             <div id="tooplate_menu" class="ddsmoothmenu">
                 <ul>
                     <li><a href="index" class="selected">Trang chủ</a></li>
-                    <li><a href="manageProducts">Sản phẩm</a>
+                    <li><a href="allProduct">Sản phẩm</a>
                     </li>
                     <li><a href="viewCart">Thanh Toán</a></li>
                     <li><a href="manageProducts">Quản Lý</a></li>
                     <?php
                     if (isset($_SESSION['user']))
                     {
-                        echo "<li><a href='DangNhap1.html' class='last'>Hello {$_SESSION['user'][0]['tenkh']}</a></li>";
+                        echo "<li><a href='# class='last'>Hello {$_SESSION['user'][0]['tenkh']}</a></li>";
                         echo "<li><a href='logout' class='last'>Đăng Xuất
                 </a></li>";
                     } else
@@ -123,9 +123,9 @@
         <div id="header_bottom">
 
             <div id="tooplate_search">
-                <form action="#" method="get">
-                    <input type="text" value=" " name="keyword" id="keyword" title="keyword" onfocus="clearText(this)"
-                           onblur="clearText(this)" class="txt_field"/>
+                <form action="search" method="get">
+                    <input type="text" id="keyword" title="keyword" onfocus="clearText(this)"
+                           onblur="clearText(this)" class="txt_field" name="id"/>
                     <input type="submit" name="Search" value=" " alt="Search" id="searchbutton" title="search"
                            class="sub_btn"/>
                 </form>
@@ -149,6 +149,7 @@
                     <th width="90" align="right">Mã Nhà Sản Xuất</th>
                     <th width="60" align="right">Mã Loại</th>
                     <th width="90"></th>
+                    <th width="90"></th>
 
                 </tr><?php
                 foreach ($products as $key => $value)
@@ -169,7 +170,9 @@
                     <td align='right'>$gia</td>
                     <td align='right'>$sx</td>
                     <td align='right'>$loai</td>
-                    <td align='center'> <a href='deleteProduct?id=$ma'><img src='../../images/remove.png' alt='remove' /><br />Xóa</a> </td>
+                    <td align='center'> <a href='deleteProduct?id=$ma'><img src='../../images/remove.png' alt='remove' /><br />Xóa</a></td>
+                     <td><a href='edit?id=$ma'><img src='../../images/update.png' alt='update' /><br />Sửa</a> 
+                    </td>
                 </tr>";
                 }
                 ?>
